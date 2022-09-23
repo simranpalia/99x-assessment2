@@ -64,8 +64,7 @@ namespace _99xAssessment2.Utils
                                                     {
                                                         Year = year,
                                                         Month = mon,
-                                                        Value = Convert.ToDecimal(excelRow.ItemArray[1]),
-                                                        InsertedBy = uploadedBy
+                                                        Value = Convert.ToDecimal(excelRow.ItemArray[1])
                                                     }
                                                 }
                                             });
