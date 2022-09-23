@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity.Migrations;
-using System.Linq;
-using System.Web;
+﻿using System.Data.Entity.Migrations;
 using _99xAssessment2.Repository.ORM;
 
 namespace _99xAssessment2.Repository
