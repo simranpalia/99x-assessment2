@@ -106,3 +106,9 @@ C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\obj\Debug\
 C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\obj\Debug\99xAssessment2.csproj.CopyComplete
 C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\obj\Debug\99xAssessment2.dll
 C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\obj\Debug\99xAssessment2.pdb
+C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\bin\ExcelDataReader.DataSet.dll
+C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\bin\ExcelDataReader.dll
+C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\bin\ExcelDataReader.pdb
+C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\bin\ExcelDataReader.xml
+C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\bin\ExcelDataReader.DataSet.pdb
+C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2\bin\ExcelDataReader.DataSet.xml

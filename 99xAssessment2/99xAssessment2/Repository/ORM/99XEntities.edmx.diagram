@@ -14,6 +14,11 @@
         <AssociationConnector Association="XAssessmentModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="XAssessmentModel.AspNetUserRoles" />
         <EntityTypeShape EntityType="XAssessmentModel.User" Width="1.5" PointX="3.375" PointY="6.75" />
+        <EntityTypeShape EntityType="XAssessmentModel.Account" Width="1.5" PointX="5.625" PointY="6.75" />
+        <EntityTypeShape EntityType="XAssessmentModel.AccountJournal" Width="1.5" PointX="7.875" PointY="6.5" />
+        <AssociationConnector Association="XAssessmentModel.FK_Account_User" />
+        <AssociationConnector Association="XAssessmentModel.FK_AccountJournal_Account" />
+        <AssociationConnector Association="XAssessmentModel.FK_AccountJournal_User" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

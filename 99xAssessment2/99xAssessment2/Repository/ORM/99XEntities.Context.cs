@@ -31,5 +31,7 @@ namespace _99xAssessment2.Repository.ORM
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Account> Accounts { get; set; }
+        public virtual DbSet<AccountJournal> AccountJournals { get; set; }
     }
 }

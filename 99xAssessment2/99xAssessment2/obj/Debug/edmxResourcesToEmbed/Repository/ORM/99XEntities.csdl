@@ -19,6 +19,20 @@
       <End Role="AspNetUser" EntitySet="AspNetUsers" />
     </AssociationSet>
     <EntitySet Name="Users" EntityType="XAssessmentModel.User" />
+    <EntitySet Name="Accounts" EntityType="XAssessmentModel.Account" />
+    <EntitySet Name="AccountJournals" EntityType="XAssessmentModel.AccountJournal" />
+    <AssociationSet Name="FK_Account_User" Association="XAssessmentModel.FK_Account_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Account" EntitySet="Accounts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccountJournal_Account" Association="XAssessmentModel.FK_AccountJournal_Account">
+      <End Role="Account" EntitySet="Accounts" />
+      <End Role="AccountJournal" EntitySet="AccountJournals" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccountJournal_User" Association="XAssessmentModel.FK_AccountJournal_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="AccountJournal" EntitySet="AccountJournals" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="C__MigrationHistory">
     <Key>
@@ -119,5 +133,72 @@
     <Property Name="CreatedAt" Type="DateTime" Precision="3" />
     <Property Name="Username" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Accounts" Relationship="XAssessmentModel.FK_Account_User" FromRole="User" ToRole="Account" />
+    <NavigationProperty Name="AccountJournals" Relationship="XAssessmentModel.FK_AccountJournal_User" FromRole="User" ToRole="AccountJournal" />
   </EntityType>
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InsertedBy" Type="Int64" Nullable="false" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="AccountName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="XAssessmentModel.FK_Account_User" FromRole="Account" ToRole="User" />
+    <NavigationProperty Name="AccountJournals" Relationship="XAssessmentModel.FK_AccountJournal_Account" FromRole="Account" ToRole="AccountJournal" />
+  </EntityType>
+  <EntityType Name="AccountJournal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="InsertedBy" Type="Int64" Nullable="false" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="AccountId" Type="Int64" Nullable="false" />
+    <Property Name="Year" Type="Int32" Nullable="false" />
+    <Property Name="Month" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Account" Relationship="XAssessmentModel.FK_AccountJournal_Account" FromRole="AccountJournal" ToRole="Account" />
+    <NavigationProperty Name="User" Relationship="XAssessmentModel.FK_AccountJournal_User" FromRole="AccountJournal" ToRole="User" />
+    <Property Name="Value" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+  </EntityType>
+  <Association Name="FK_Account_User">
+    <End Type="XAssessmentModel.User" Role="User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="XAssessmentModel.Account" Role="Account" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Account">
+        <PropertyRef Name="InsertedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccountJournal_Account">
+    <End Type="XAssessmentModel.Account" Role="Account" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="XAssessmentModel.AccountJournal" Role="AccountJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Account">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountJournal">
+        <PropertyRef Name="AccountId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccountJournal_User">
+    <End Type="XAssessmentModel.User" Role="User" Multiplicity="1" />
+    <End Type="XAssessmentModel.AccountJournal" Role="AccountJournal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccountJournal">
+        <PropertyRef Name="InsertedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>
