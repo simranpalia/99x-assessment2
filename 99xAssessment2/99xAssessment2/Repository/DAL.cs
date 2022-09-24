@@ -21,6 +21,29 @@ namespace _99xAssessment2.Repository
 
         public static IEnumerable<AccountJournal> GetAccountJournals() => GetContext().AccountJournals;
 
+        public static void DeleteAccounts(IEnumerable<Account> toBeDeleted)
+        {
+            if (toBeDeleted != null)
+            {
+                DeleteAccountsById(toBeDeleted.Select(x => x.Id).ToList());
+            }
+        }
+
+        private static void DeleteAccountsById(List<long> accountIds)
+        {
+            var ctx = GetContext();
+            if (accountIds.Any())
+            {
+                var toBeDeleted = ctx.Accounts.Where(x => accountIds.Contains(x.Id));
+
+                if (toBeDeleted.Any())
+                {
+                    ctx.Accounts.RemoveRange(toBeDeleted);
+                    ctx.SaveChanges();
+                }
+            }
+        }
+
         public static void AddOrUpdateUser(User user)
         {
             var ctx = GetContext();
