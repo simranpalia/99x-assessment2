@@ -11,8 +11,11 @@ The web app can works with 2 types of roles:
 Set up SuperAdmin & Admin user(s):-
 This can be done once the application able to run on localhost.
 Just execute the below url's to create users:-
+
 Ex: 
+
 For AdminUser: https://99xassessment220220924210846.azurewebsites.net/account/AddAdminUser?userName=user1@demo.com
+
 For SuperAdminUser: https://99xassessment220220924210846.azurewebsites.net/account/AddSuperAdminUser?userName=superadmin1@demo.com
 
 Password will be taken from the configured key from web.config (<add key="SuperAdminPwd" value="Simran1990-=" />)
