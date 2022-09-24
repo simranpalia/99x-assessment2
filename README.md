@@ -1,5 +1,7 @@
 # 99x-assessment2
 
+DemoUrl: https://99xassessment220220924210846.azurewebsites.net/
+
 This contains 2 projects in it i.e.. 99xAssessment2 (The WebApp) & 99xAssessment2.Test (Unit tests)
 
 The web app can works with 2 types of roles:
@@ -10,8 +12,8 @@ Set up SuperAdmin & Admin user(s):-
 This can be done once the application able to run on localhost.
 Just execute the below url's to create users:-
 Ex: 
-For AdminUser: https://localhost:44307/account/AddAdminUser?userName=user@demo.com
-For SuperAdminUser: https://localhost:44307/account/AddAdminUser?userName=superadmin@demo.com
+For AdminUser: https://99xassessment220220924210846.azurewebsites.net/account/AddAdminUser?userName=user1@demo.com
+For SuperAdminUser: https://99xassessment220220924210846.azurewebsites.net/account/AddAdminUser?userName=superadmin1@demo.com
 
 Password will be taken from the configured key from web.config (<add key="SuperAdminPwd" value="Simran1990-=" />)
 
