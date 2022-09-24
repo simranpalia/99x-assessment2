@@ -1,0 +1,54 @@
+﻿@using _99xAssessment2.Utils
+@using Microsoft.AspNet.Identity.Owin
+@model IEnumerable<_99xAssessment2.Repository.ORM.Account>
+@{
+    ViewBag.Title = "Balance Report";
+    string balanceAsOf = Model.SelectMany(x => x.AccountJournals).OrderByDescending(x => x.Year).ThenByDescending(x => x.Month).FirstOrDefault().ToAsOfBalance();
+    var accJournals = Model.SelectMany(x => x.AccountJournals).CalculateFinalBalance();
+}
+
+<div class="form-horizontal">
+
+    <div class="form-group">
+        <div class="col-sm-12">
+
+            @if (Model.Any() && Model.Any(x => x.AccountJournals.Any()))
+            {
+                <label class="control-label">
+                    Balance as of @balanceAsOf
+                </label>
+            }
+            else
+            {
+                <label class="control-label">
+                    No account info available, Upload the excel first.
+                </label>
+            }
+        </div>
+        <div class="col-sm-12">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        @foreach (var accName in Model)
+                        {
+                            <th>
+                                @accName.AccountName
+                            </th>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        @foreach (var accName in Model)
+                        {
+                            <td>
+                                Rs. @accJournals.FirstOrDefault(x => x.Account.Id == accName.Id).SummedValues.ToString("N2")/=
+                            </td>
+                        }
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

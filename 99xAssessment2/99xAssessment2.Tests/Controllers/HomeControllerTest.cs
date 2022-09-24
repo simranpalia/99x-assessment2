@@ -1,10 +1,5 @@
-﻿using _99xAssessment2;
-using _99xAssessment2.Controllers;
+﻿using _99xAssessment2.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Web.Mvc;
 
 namespace _99xAssessment2.Tests.Controllers

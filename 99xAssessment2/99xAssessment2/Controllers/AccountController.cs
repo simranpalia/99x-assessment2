@@ -75,7 +75,7 @@ namespace _99xAssessment2.Controllers
 
                     if (userRoles.Contains(Constants.RoleAdmin))
                     {
-                        return RedirectToAction("Index", "Manage");
+                        return RedirectToAction("Dashboard", "Common");
                     }
                 }
             }
@@ -100,7 +100,7 @@ namespace _99xAssessment2.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    return RedirectToAction("Login");
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -335,7 +335,7 @@ namespace _99xAssessment2.Controllers
             {
                 return View("Error");
             }
-            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, ReturnUrl = model.ReturnUrl, RememberMe = model.RememberMe });
+            return RedirectToAction("VerifyCode", new { Provider = model.SelectedProvider, model.ReturnUrl, model.RememberMe });
         }
 
         //
@@ -413,7 +413,7 @@ namespace _99xAssessment2.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
         }
 
         //
@@ -429,7 +429,7 @@ namespace _99xAssessment2.Controllers
         {
             if (!userName.IsNullOrWhiteSpace())
             {
-                var result = SetupUser(userName, Utils.Constants.RoleSuperUser);
+                var result = SetupUser(userName, Constants.RoleSuperUser);
                 return Content(result.Succeeded ? $"Admin user is created with userName:{userName}, password:{_99XAppConfig.SuperAdminPwd}" : $"Server error:{string.Join(",", result.Errors)}");
             }
 
@@ -437,12 +437,12 @@ namespace _99xAssessment2.Controllers
         }
 
         [HttpGet, AllowAnonymous]
-        public ActionResult AddAdminUser(string adminUserName)
+        public ActionResult AddAdminUser(string userName)
         {
-            if (!adminUserName.IsNullOrWhiteSpace())
+            if (!userName.IsNullOrWhiteSpace())
             {
-                var result = SetupUser(adminUserName, Utils.Constants.RoleAdmin);
-                return Content(result.Succeeded ? $"Admin user is created with userName:{adminUserName}, password:{_99XAppConfig.SuperAdminPwd}" : $"Server error:{string.Join(",", result.Errors)}");
+                var result = SetupUser(userName, Constants.RoleAdmin);
+                return Content(result.Succeeded ? $"Admin user is created with userName:{userName}, password:{_99XAppConfig.SuperAdminPwd}" : $"Server error:{string.Join(",", result.Errors)}");
             }
 
             return Content("Username is not supplied.");

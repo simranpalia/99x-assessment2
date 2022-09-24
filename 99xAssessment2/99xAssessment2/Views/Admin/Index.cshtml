@@ -3,7 +3,6 @@
     ViewBag.Title = "Index";
 }
 
-
 <div class="row">
     <div class="col-md-3">
         <h2>Upload Balance</h2>
@@ -13,7 +12,14 @@
     </div>
     <div class="col-md-3">
         <h2>Balance Report</h2>
-        <p><a class="btn btn-default" href="/Admin/GetBalances">View Balance Report</a></p>
+        <p>
+            <a class="btn btn-default" href="/Common/BalanceReport">View Balance Report</a>
+        </p>
     </div>
-
 </div>
+<script>
+    var msg = '@ViewBag.Message';
+    if (msg) {
+        alert(msg);
+    }
+</script>
