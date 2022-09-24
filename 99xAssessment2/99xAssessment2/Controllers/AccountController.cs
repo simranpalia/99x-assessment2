@@ -429,6 +429,8 @@ namespace _99xAssessment2.Controllers
         {
             if (!userName.IsNullOrWhiteSpace())
             {
+                if (UserManager.Users.Any(x => x.UserName == userName))
+                    return Content($"User already exists with username:{userName}, Please retry with different username.");
                 var result = SetupUser(userName, Constants.RoleSuperUser);
                 return Content(result.Succeeded ? $"Admin user is created with userName:{userName}, password:{_99XAppConfig.SuperAdminPwd}" : $"Server error:{string.Join(",", result.Errors)}");
             }
@@ -441,6 +443,8 @@ namespace _99xAssessment2.Controllers
         {
             if (!userName.IsNullOrWhiteSpace())
             {
+                if (UserManager.Users.Any(x => x.UserName == userName))
+                    return Content($"User already exists with username:{userName}, Please retry with different username.");
                 var result = SetupUser(userName, Constants.RoleAdmin);
                 return Content(result.Succeeded ? $"Admin user is created with userName:{userName}, password:{_99XAppConfig.SuperAdminPwd}" : $"Server error:{string.Join(",", result.Errors)}");
             }
