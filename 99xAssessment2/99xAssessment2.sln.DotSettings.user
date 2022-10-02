@@ -1,8 +1,8 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=76177b64_002D57b2_002D402f_002Dac5b_002Dbe45cf9b52b8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestCreateAccountFromExcel #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=76177b64_002D57b2_002D402f_002Dac5b_002Dbe45cf9b52b8/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestCreateAccountFromExcel #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Work\99x-Assessment2\99x-assessment2\99xAssessment2\99xAssessment2.Tests" Presentation="&amp;lt;99xAssessment2.Tests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f6d2d19b_002D0ab3_002D4e7b_002D8724_002Dfda877ef5392/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="TestCreateAccountFromExcel" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f6d2d19b_002D0ab3_002D4e7b_002D8724_002Dfda877ef5392/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestCreateAccountFromExcel" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;MSTest::DA1F71A8-E75E-4539-9A13-10E51AC00E91::.NETFramework,Version=v4.7.2::_99xAssessment2.Tests.RepoTest.DalTestFixture.TestCreateAccountFromExcel&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;

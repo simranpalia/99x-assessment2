@@ -1,0 +1,26 @@
+<h1 id="tableLabel">Account Summary</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!forecasts"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="forecasts">
+  <thead>
+    <tr>
+      <th>R&D</th>
+      <th>Canteen</th>
+      <th>CEO's car</th>
+      <th>Marketing</th>
+      <th>Parking fines</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngIf="forecasts">
+      <td>{{ forecasts.accountType1 }}</td>
+      <td>{{ forecasts.accountType2 }}</td>
+      <td>{{ forecasts.accountType3 }}</td>
+      <td>{{ forecasts.accountType4 }}</td>
+      <td>{{ forecasts.accountType5 }}</td>
+    </tr>
+  </tbody>
+</table>
